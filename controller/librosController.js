@@ -1,4 +1,4 @@
-let db=require("../config/databese");
+let db=require("../config/database");
 class librosController{
     static async obtenerlibros(req,res){
         let [lista] = await db.query("SELECT * from libros");
@@ -6,7 +6,7 @@ class librosController{
      }
      static async insertarlibros(req,res){
         let {titulo,autor,añoPublicacion,disponibilidad}= req.body;
-       let libros = await db.query("insert into libros(titulo,autor,añoPublicacion,disponibilidad) VALUES (?,?,?,?)",[titulo,autor,añoPublicacion,disponibilization]);
+       let libros = await db.query("insert into libros(titulo,autor,añoPublicacion,disponibilidad) VALUES (?,?,?,?)",[titulo,autor,añoPublicacion,disponibilidad]);
        res.json(req.body);
     }
     static async eliminarlibros(req,res){
@@ -22,7 +22,7 @@ class librosController{
      }
      static async buscarlibros(req,res){
          let {buscarT} = req.params;
-         let buscar=await db.query("select * from libros where titulo=?",[buscarT]);
+         let buscar=await db.query("select * from libro where titulo=?",[buscarT]);
          res.json(buscar);
      }
      }
